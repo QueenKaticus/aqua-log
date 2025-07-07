@@ -26,12 +26,47 @@ document.getElementById('waterForm').addEventListener('submit', async (e) => {
 
   const result = await response.text();
 
+  // Begin the Chart function
+  async function fetchAndDrawChart() {
+  const response = await fetch('https://script.google.com/macros/s/AKfycbyQX4LMlrTjj6J5f4Ek-FPKbA2Zdvr2nuALUA-2fM6RYjMkNvm0QLJHXRzHmvq56zoK/exec');
+  const data = await response.json();
+
+  // For now, we’ll just graph Nitrate as a test
+  const labels = data.map((entry, index) => `Entry ${index + 1}`);
+  const nitrateValues = data.map(entry => entry.Nitrate);
+
+  const ctx = document.getElementById('parameterChart').getContext('2d');
+  const chart = new Chart(ctx, {
+    type: 'line',
+    data: {
+      labels: labels,
+      datasets: [{
+        label: 'Nitrate Levels',
+        data: nitrateValues,
+        borderColor: 'rgba(75, 192, 192, 1)',
+        backgroundColor: 'rgba(75, 192, 192, 0.2)',
+        tension: 0.2
+      }]
+    },
+    options: {
+      responsive: true,
+      scales: {
+        y: {
+          beginAtZero: true
+        }
+      }
+    }
+  });
+}
+
+.then(() => {  
   // Fake success message b/c of CORS
   document.getElementById('result').innerText = "Entry logged! ✅ Way to Go!";
-  
+  form.reset();  // ✅ Reset the form first (even if it’s hidden later).
   // Hide the form and show the graph
   document.getElementById('waterForm').style.display = 'none';
   document.getElementById('graphSection').style.display = 'block';
-  
-  form.reset();
+  fetchAndDrawChart();  // ✅ Then fetch and draw the graph.
+  });
+                                                      
 });
