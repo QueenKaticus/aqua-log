@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <title>Aquarium Water Logger</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+  </head>
+<body>
+  <h1>🐠 Aquarium Water Logger</h1>
+  <form id="waterForm">
+    <input type="number" step="any" name="freeChlorine" placeholder="Free Chlorine" required><br>
+    <input type="number" step="any" name="nitrate" placeholder="Nitrate" required><br>
+    <input type="number" step="any" name="nitrite" placeholder="Nitrite" required><br>
+    <input type="number" step="any" name="hardness" placeholder="Hardness" required><br>
+    <input type="number" step="any" name="totalAlkalinity" placeholder="Total Alkalinity" required><br>
+    <input type="number" step="any" name="ph" placeholder="pH" required><br>
+    <input type="number" step="any" name="sodiumChloride" placeholder="Sodium Chloride" required><br>
+    <input type="number" step="any" name="ammoniaNitrogen" placeholder="Ammonia Nitrogen" required><br>
+    <input type="number" step="any" name="temperature" placeholder="Temperature" required><br>
+    <textarea name="notes" placeholder="Notes (optional)"></textarea><br>
+    <button type="submit">Log Data</button>
+  </form>
+  <p id="result"></p>
+
+  <script src="script.js"></script>
+</body>
+</html>
