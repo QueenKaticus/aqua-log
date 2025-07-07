@@ -1,7 +1,6 @@
   // Begin the Chart function
   async function fetchAndDrawChart() {
   const response = await fetch('https://script.google.com/macros/s/AKfycbyQX4LMlrTjj6J5f4Ek-FPKbA2Zdvr2nuALUA-2fM6RYjMkNvm0QLJHXRzHmvq56zoK/exec');
-  const data = await response.json();
 
   // For now, we’ll just graph Nitrate as a test
   const labels = data.map((entry, index) => `Entry ${index + 1}`);
