@@ -1,11 +1,14 @@
-  // Begin the Chart function
+  // Begin the Graph Chart function
   async function fetchAndDrawChart() {
   const response = await fetch('https://script.google.com/macros/s/AKfycbyQX4LMlrTjj6J5f4Ek-FPKbA2Zdvr2nuALUA-2fM6RYjMkNvm0QLJHXRzHmvq56zoK/exec');
   const data = await response.json();
 
-  // For now, we’ll just graph Nitrate as a test
-  const labels = data.map((entry, index) => `Entry ${index + 1}`);
-  const nitrateValues = data.map(entry => entry.Nitrate);
+  // Only graph the most recent 8 entries
+  const recentData = data.slice(-8);
+  // Only use the day - trim the timestamp
+  const labels = recentData.map(entry => entry.Date.split(' ')[0]);
+  // Pull the most recent 8 from the selected parameter
+  const values = recentData.map(entry => Number(entry[selectedParameter]));
 
   const ctx = document.getElementById('parameterChart').getContext('2d');
   const chart = new Chart(ctx, {
@@ -13,8 +16,8 @@
     data: {
       labels: labels,
       datasets: [{
-        label: 'Nitrate Levels',
-        data: nitrateValues,
+        label: `${selectedParameter} Levels`,
+        data: values,
         borderColor: 'rgba(75, 192, 192, 1)',
         backgroundColor: 'rgba(75, 192, 192, 0.2)',
         tension: 0.2
@@ -29,7 +32,7 @@
       }
     }
   });
-}
+} // End the Graph Chart Function
 
 // Begin the Form Handler
 document.getElementById('waterForm').addEventListener('submit', async (e) => {
@@ -60,14 +63,18 @@ document.getElementById('waterForm').addEventListener('submit', async (e) => {
 
   const result = await response.text();
 
-
-
  // Fake success message b/c of CORS
  document.getElementById('result').innerText = "Entry logged! ✅ Way to Go!";
- form.reset();  // ✅ Reset the form first (even if it’s hidden later).
+ form.reset();  // Reset the form first (even if it’s hidden later).
  // Hide the form and show the graph
  document.getElementById('waterForm').style.display = 'none';
  document.getElementById('graphSection').style.display = 'block';
- fetchAndDrawChart();  // ✅ Then fetch and draw the graph.
+ fetchAndDrawChart();  // Then fetch and draw the graph.
                                                       
-});
+}); // End the Form Handler
+
+// BEGIN Dropdown change listener
+document.getElementById('parameterSelector').addEventListener('change', () => {
+  fetchAndDrawChart();  // Redraw graph when dropdown changes
+}); // END Dropdown change listener
+
