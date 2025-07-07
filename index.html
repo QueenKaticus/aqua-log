@@ -26,9 +26,21 @@
     <textarea name="notes" placeholder="Notes (optional)"></textarea><br>
     <button type="submit">Log Data</button>
   </form>
+
+  <div id="graphSection" style="display:none;">
+    <select id="parameterSelector">
+      <option value="Nitrate">Nitrate</option>
+      <option value="Nitrite">Nitrite</option>
+      <option value="Temperature">Temperature</option>
+      <!-- More options later! -->
+    </select>
+
+    <canvas id="parameterChart" width="400" height="200"></canvas>
+    
   </div>
   <p id="result"></p>
+  
 
-  <script src="script.js"></script>
+<script src="aqua-dashboard.js"></script>
 </body>
 </html>
