@@ -19,8 +19,14 @@ body::before {
 }
 
 h1 {
-  font-size: 2rem;
-  margin-bottom: 1rem;
+  font-weight: 700;
+  font-size: 2.2rem;
+  letter-spacing: 0.5px;
+  background-color: rgba(255, 255, 255, 0.7);
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  display: inline-block;
+  margin-bottom: 1rem; /* Keeps your existing spacing below */
 }
 
 form {
