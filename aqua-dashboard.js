@@ -25,6 +25,13 @@ document.getElementById('waterForm').addEventListener('submit', async (e) => {
   });
 
   const result = await response.text();
+
+  // Fake success message b/c of CORS
   document.getElementById('result').innerText = "Entry logged! ✅ Way to Go!";
+  
+  // Hide the form and show the graph
+  document.getElementById('waterForm').style.display = 'none';
+  document.getElementById('graphSection').style.display = 'block';
+  
   form.reset();
 });
