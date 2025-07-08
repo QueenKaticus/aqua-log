@@ -8,6 +8,7 @@
   // Only use the day - trim the timestamp
   const labels = recentData.map(entry => entry.Date.split(' ')[0]);
   // Pull the most recent 8 from the selected parameter
+  const selectedParameter = document.getElementById('parameterSelector').value;  
   const values = recentData.map(entry => Number(entry[selectedParameter]));
 
   const ctx = document.getElementById('parameterChart').getContext('2d');
@@ -60,8 +61,6 @@ document.getElementById('waterForm').addEventListener('submit', async (e) => {
       'Content-Type': 'application/json'
     }
   });
-
-  const result = await response.text();
 
  // Fake success message b/c of CORS
  document.getElementById('result').innerText = "Entry logged! ✅ Way to Go!";
