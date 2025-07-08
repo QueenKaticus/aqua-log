@@ -11,8 +11,10 @@ let chart = null;
   // Only use the day - trim the timestamp
   const labels = recentData.map(entry => {
   const date = new Date(entry.Date);
-  return date.toLocaleDateString();
+  return date.toLocaleDateString(undefined, { month: 'short', day: 'numeric' });
+  });
   });  
+
   // Pull the most recent 8 from the selected parameter
   const selectedParameter = document.getElementById('parameterSelector').value;  
   const values = recentData.map(entry => Number(entry[selectedParameter]));
