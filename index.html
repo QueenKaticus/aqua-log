@@ -1,15 +1,21 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="mobile-web-app-capable" content="yes">
+    <meta name="theme-color" content="#e0f7fa">
+    <meta name="description" content="A cozy personal dashboard for logging and graphing aquarium water tests.">
+    
     <title>Aquarium Water Logger</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
     <link rel="apple-touch-icon" href="images/aqualog-icon.png">
     <link rel="icon" type="image/png" href="images/aqualog-icon.png">
+    
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+    
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="aqua-dashboard.js" defer></script>
   </head>
 <body>
   <div class="app-container">
@@ -48,7 +54,5 @@
   </div>
   <p id="result"></p>
   
-
-<script src="aqua-dashboard.js"></script>
 </body>
 </html>
