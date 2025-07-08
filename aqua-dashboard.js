@@ -89,3 +89,10 @@ document.getElementById('parameterSelector').addEventListener('change', () => {
   fetchAndDrawChart();  // Redraw graph when dropdown changes
 }); // END Dropdown change listener
 
+// BEGIN Refresh Listener
+document.getElementById('addEntryButton').addEventListener('click', () => {
+  document.getElementById('graphSection').style.display = 'none';
+  document.getElementById('waterForm').style.display = 'block';
+}); // END refresh listener
+
+
