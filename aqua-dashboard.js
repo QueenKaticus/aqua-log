@@ -1,4 +1,7 @@
-  // Begin the Graph Chart function
+// Variable for chart instance
+let chart = null;
+
+// Begin the Graph Chart function
   async function fetchAndDrawChart() {
   const response = await fetch('https://script.google.com/macros/s/AKfycbyQX4LMlrTjj6J5f4Ek-FPKbA2Zdvr2nuALUA-2fM6RYjMkNvm0QLJHXRzHmvq56zoK/exec');
   const data = await response.json();
@@ -6,10 +9,18 @@
   // Only graph the most recent 8 entries
   const recentData = data.slice(-8);
   // Only use the day - trim the timestamp
-  const labels = recentData.map(entry => entry.Date.split(' ')[0]);
+  const labels = recentData.map(entry => {
+  const date = new Date(entry.Date);
+  return date.toLocaleDateString();
+  });  
   // Pull the most recent 8 from the selected parameter
   const selectedParameter = document.getElementById('parameterSelector').value;  
   const values = recentData.map(entry => Number(entry[selectedParameter]));
+
+  // check if the chart already exists - if it does, destroy it!
+  if (chart) {
+  chart.destroy();
+  }
 
   const ctx = document.getElementById('parameterChart').getContext('2d');
   const chart = new Chart(ctx, {
