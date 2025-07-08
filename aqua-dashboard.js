@@ -13,7 +13,6 @@ let chart = null;
   const date = new Date(entry.Date);
   return date.toLocaleDateString(undefined, { month: 'short', day: 'numeric' });
   });
-  });  
 
   // Pull the most recent 8 from the selected parameter
   const selectedParameter = document.getElementById('parameterSelector').value;  
