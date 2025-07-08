@@ -23,7 +23,7 @@ let chart = null;
   }
 
   const ctx = document.getElementById('parameterChart').getContext('2d');
-  const chart = new Chart(ctx, {
+  chart = new Chart(ctx, {
     type: 'line',
     data: {
       labels: labels,
