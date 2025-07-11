@@ -51,6 +51,10 @@ let chart = null;
 document.getElementById('waterForm').addEventListener('submit', async (e) => {
   e.preventDefault();
 
+// Hide form + show logging message *before* starting the fetch
+  document.getElementById('waterForm').style.display = 'none';
+  document.getElementById('loggingMessage').style.display = 'block';
+  
   const form = e.target;
   const data = {
     freeChlorine: form.freeChlorine.value,
