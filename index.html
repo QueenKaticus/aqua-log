@@ -26,7 +26,9 @@
   <button id="newEntryButton">Enter New Data</button>
   <button id="viewHistoryButton">See Historic Data</button>
   </div> 
-  
+
+    <div id="loggingMessage" style="display:none;">Logging your data... 🐟</div>
+    
     <form id="waterForm">
     <button type="button" id="cancelEntryButton">Cancel / Back to Menu</button>
     <input type="number" step="any" name="freeChlorine" placeholder="Free Chlorine" required><br>
@@ -54,14 +56,11 @@
       <option value="Ammonia Nitrogen">Ammonia Nitrogen</option>
       <option value="Temperature">Temperature</option>
     </select>
-
+    <p id="result"></p>
     <canvas id="parameterChart" width="400" height="200"></canvas>
-
     <button id="addEntryButton">Add Another Entry</button>
-    
   </div>
-  <p id="result"></p>
+  
 </div> <!-- Close .app-container here -->
-
 </body>
 </html>
