@@ -100,3 +100,17 @@ button:hover {
 #waterForm, #graphSection {
   display: none;
 }
+
+.swimmingFish {
+  display: inline-block;
+  animation: swim 2s ease-in-out infinite alternate;
+}
+
+@keyframes swim {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(20px);
+  }
+}
