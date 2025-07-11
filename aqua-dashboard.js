@@ -79,7 +79,8 @@ document.getElementById('waterForm').addEventListener('submit', async (e) => {
   });
 
  // Fake success message b/c of CORS
- document.getElementById('result').innerText = "Entry logged! ✅ Way to Go!";
+ document.getElementById('loggingMessage').style.display = 'none'; // Hide the loading message
+ document.getElementById('result').innerText = "Entry logged! Way to Go!"; // Show the submission success message
  form.reset();  // Reset the form first (even if it’s hidden later).
  // Hide the form and show the graph
  document.getElementById('waterForm').style.display = 'none';
