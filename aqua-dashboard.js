@@ -108,4 +108,9 @@ document.getElementById('viewHistoryButton').addEventListener('click', () => {
   fetchAndDrawChart();  // Load the graph
 });
 
+// Handle "Cancel/Back to Menu" button
+document.getElementById('cancelEntryButton').addEventListener('click', () => {
+  document.getElementById('waterForm').style.display = 'none';
+  document.getElementById('welcomeSection').style.display = 'block';
+});
 
