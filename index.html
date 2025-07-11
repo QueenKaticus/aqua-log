@@ -20,7 +20,14 @@
 <body>
   <div class="app-container">
   <h1>🐠 Aquarium Water Logger</h1>
-  <form id="waterForm">
+
+  <div id="welcomeSection">
+  <h2>Welcome to the Aquarium Data Dashboard</h2>
+  <button id="newEntryButton">Enter New Data</button>
+  <button id="viewHistoryButton">See Historic Data</button>
+  </div> 
+  
+    <form id="waterForm">
     <input type="number" step="any" name="freeChlorine" placeholder="Free Chlorine" required><br>
     <input type="number" step="any" name="nitrate" placeholder="Nitrate" required><br>
     <input type="number" step="any" name="nitrite" placeholder="Nitrite" required><br>
@@ -53,6 +60,7 @@
     
   </div>
   <p id="result"></p>
-  
+</div> <!-- Close .app-container here -->
+
 </body>
 </html>
