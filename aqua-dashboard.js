@@ -95,4 +95,17 @@ document.getElementById('addEntryButton').addEventListener('click', () => {
   document.getElementById('waterForm').style.display = 'block';
 }); // END refresh listener
 
+// Handle 'Enter New Data' button
+document.getElementById('newEntryButton').addEventListener('click', () => {
+  document.getElementById('welcomeSection').style.display = 'none';
+  document.getElementById('waterForm').style.display = 'block';
+});
+
+// Handle 'See Historic Data' button
+document.getElementById('viewHistoryButton').addEventListener('click', () => {
+  document.getElementById('welcomeSection').style.display = 'none';
+  document.getElementById('graphSection').style.display = 'block';
+  fetchAndDrawChart();  // Load the graph
+});
+
 
